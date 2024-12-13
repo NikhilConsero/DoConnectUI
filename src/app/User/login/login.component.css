@@ -1,0 +1,98 @@
+/* Main container for centering the form */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+}
+
+/* Wrapper for form elements */
+.form-wrapper {
+    background-color: #6eb4f0;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+/* Form styling */
+.auth-form {
+    display: block;
+}
+
+/* Heading style */
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Label styling */
+label {
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Input field styling */
+input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Input field focus effect */
+input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #218838;
+}
+
+/* Button focus effect */
+button:focus {
+    outline: none;
+}
+
+/* Redirect link below form */
+.redirect {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.redirect p {
+    font-size: 14px;
+    color: #333;
+}
+
+.redirect a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.redirect a:hover {
+    text-decoration: underline;
+}

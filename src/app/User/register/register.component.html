@@ -1,0 +1,35 @@
+<div class="auth-container">
+    <div class="form-wrapper">
+      <!-- Register Form -->
+      <form id="register-form" class="auth-form">
+        <h2>Register</h2>
+        <!-- First Name -->
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" placeholder="Enter your first name" required [(ngModel)]="UserData.FirstName" name="firstname" />
+        
+        <!-- Last Name -->
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" placeholder="Enter your last name" required [(ngModel)]="UserData.LastName" name="lastname" />
+        
+        <!-- Username -->
+        <label for="username">Username</label>
+        <input type="text" id="username" placeholder="Choose a username" required [(ngModel)]="UserData.UserName" name="username" />
+  
+        <!-- Email -->
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="Enter your email" required [(ngModel)]="UserData.Email" name="email" />
+  
+        <!-- Password -->
+        <label for="password">Password</label>
+        <input type="password" id="password" placeholder="Create a password" required [(ngModel)]="UserData.Password" name="password" />
+  
+        <!-- Phone Number -->
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter your phone number" required [(ngModel)]="UserData.Phone" name="phone" />
+  
+        <!-- Register Button -->
+        <button type="submit" class="btn register-btn" (click)="RegisterUser()">Register</button>
+      </form>
+    </div>
+  </div>
+  
