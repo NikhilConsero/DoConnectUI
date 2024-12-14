@@ -1,17 +1,24 @@
+<br><br>
 <div class="auth-container">
     <div class="form-wrapper">
         <!-- Login Form -->
-        <form id="login-form" class="auth-form">
+        <form  [formGroup]="form" id="login-form" class="auth-form" (ngSubmit)="LoginUser()">
             <h2>Login</h2>
             
             <!-- Username -->
-            <label for="username">Username</label>
-            <input type="text" id="username" placeholder="Enter your username" required />
-            
+            <label for="Email">Email</label>
+            <input type="text" id="email" placeholder="Enter your Email" formControlName="Email"/>
+            <div *ngIf="formControls['Email'].touched && formControls['Email'].invalid">
+                <small *ngIf="formControls['Email'].hasError('required')">Email is required.</small>
+                <small *ngIf="formControls['Email'].hasError('email')">Please enter a valid email.</small>
+            </div>
+        
             <!-- Password -->
             <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter your password" required />
-            
+            <input type="password" id="password" placeholder="Enter your password" formControlName="Password"/>
+            <div *ngIf="formControls['Password'].touched && formControls['Password'].invalid">
+                <small *ngIf="formControls['Password'].hasError('required')">Password is required.</small>
+            </div>
             <!-- Login Button -->
             <button type="submit" class="btn login-btn">Login</button>
             

@@ -1,0 +1,96 @@
+/* Navbar styling */
+.navbar {
+    background-color: #6eb4f0;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  /* Container inside navbar */
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Logo styling */
+  .logo {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Image inside the logo */
+  .logo-img {
+    max-width: 100%; /* Ensures the image doesn't overflow */
+    height: auto; /* Maintains aspect ratio */
+    width: 120px; /* Set the width for the logo */
+    object-fit: contain; /* Ensures the logo is properly fitted without distorting */
+  }
+  
+  /* Navbar links */
+  .navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-links li {
+    display: inline;
+  }
+  
+  .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .navbar-links a:hover {
+    color: #ddd;
+  }
+  
+  /* Hamburger menu for small screens */
+  .hamburger-menu {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+  }
+  
+  .hamburger-menu .bar {
+    width: 30px;
+    height: 4px;
+    background-color: #fff;
+    border-radius: 2px;
+  }
+  
+  /* Responsive design - for small screens */
+  @media (max-width: 768px) {
+    .navbar-links {
+      display: none;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      background-color: #333;
+      width: 100%;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px;
+    }
+  
+    .navbar-links.active {
+      display: flex;
+    }
+  
+    .hamburger-menu {
+      display: flex;
+    }
+  }
+  

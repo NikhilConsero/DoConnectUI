@@ -12,7 +12,8 @@ export class UserserviceService {
   RegisterUser(user:any):Observable<any>{
     return this.http.post(baseurl+'/User/Register',user)
   }
-  UserLogin(user:any):Observable<any>{
-    return this.http.post(baseurl+'/User/Login',user)
+  UserLogin(user:any,email:any,password:any):Observable<any>{
+    console.log(User);
+    return this.http.post(baseurl+'/User/Login?email='+email+'&password='+password,user);
   }
 }

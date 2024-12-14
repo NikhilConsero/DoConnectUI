@@ -9,8 +9,9 @@ import { ReactiveFormsModule } from '@angular/forms';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-export class RegisterComponent {
+export class RegisterComponent {  
   form: FormGroup;
+  isRegistered:boolean=false;
   constructor(private userservice:UserserviceService,private fb:FormBuilder)
   {
     this.form=this.fb.group({
@@ -39,6 +40,10 @@ export class RegisterComponent {
     if (this.form.invalid) {
       return; // Stop if the form is invalid
     }
+    this.isRegistered=true;
+    setTimeout(()=>{
+      this.isRegistered=false;
+    },5000)
       this.UserData.id= 0,
       this.UserData.FirstName= this.form.value.FirstName;
       this.UserData.LastName= this.form.value.LastName;

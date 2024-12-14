@@ -96,3 +96,6 @@ button:focus {
 .redirect a:hover {
     text-decoration: underline;
 }
+small{
+    color: red;
+}
