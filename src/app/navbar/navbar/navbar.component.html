@@ -7,15 +7,15 @@
       
       <ul class="navbar-links">
         <!-- Conditional Menu Items for Logged-In User -->
-        <li *ngIf="loggedin"><a href="#home">Home</a></li>
-        <li *ngIf="loggedin"><a href="#questions">Questions</a></li>
-        <li *ngIf="loggedin"><a href="#answers">Answers</a></li>
-        <li *ngIf="loggedin"><a href="#myposts">My Posts</a></li>
-        <li *ngIf="loggedin"><a href="#Logout">Log Out</a></li>
+        <li *ngIf="loggedIn"><a href="/home">Home</a></li>
+        <li *ngIf="loggedIn"><a href="/question">Questions</a></li>
+        <li *ngIf="loggedIn"><a href="/answers">Answers</a></li>
+        <li *ngIf="loggedIn"><a href="/myposts">My Posts</a></li>
+        <li *ngIf="loggedIn"><a href="/login">Log Out</a></li>
   
         <!-- Menu Items for Non-Logged-In Users -->
-        <li *ngIf="!loggedin"><a href="#login">Login</a></li>
-        <li *ngIf="!loggedin"><a href="#register">Register</a></li>
+        <li *ngIf="!loggedIn"><a href="/login">Login</a></li>
+        <li *ngIf="!loggedIn"><a href="/register">Register</a></li>
       </ul>
       
       <!-- Hamburger Menu for Mobile Devices -->

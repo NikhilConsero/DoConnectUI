@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { UserserviceService } from 'src/app/Services/userservice.service';
 import { FormBuilder, FormGroup,Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +15,7 @@ export class LoginComponent {
     Email:'',
     Password:'',
   }
-  constructor(private userservice:UserserviceService,private fb:FormBuilder)
+  constructor(private userservice:UserserviceService,private fb:FormBuilder,private router:Router)
   {
       this.form=this.fb.group({
       // Corrected validation syntax
@@ -37,6 +38,9 @@ export class LoginComponent {
       next:(response)=>{
         console.log(this.UserData)
         console.log(response.result);
+        localStorage.setItem('token',response.result);
+        this.userservice.SetLoggedIn(true);
+        this.router.navigate(['/home']);
       },
       error:(err)=>{
         console.log(err)
