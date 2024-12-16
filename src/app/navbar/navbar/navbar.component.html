@@ -11,7 +11,7 @@
         <li *ngIf="loggedIn"><a href="/question">Questions</a></li>
         <li *ngIf="loggedIn"><a href="/answers">Answers</a></li>
         <li *ngIf="loggedIn"><a href="/myposts">My Posts</a></li>
-        <li *ngIf="loggedIn"><a href="/login">Log Out</a></li>
+        <li *ngIf="loggedIn"><a href="#" (click)="logout()">Log Out</a></li>
   
         <!-- Menu Items for Non-Logged-In Users -->
         <li *ngIf="!loggedIn"><a href="/login">Login</a></li>
