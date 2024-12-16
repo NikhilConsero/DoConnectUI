@@ -17,7 +17,7 @@ export class NavbarComponent implements OnInit //, //OnDestroy
 
   ngOnInit(): void {
     // Subscribe to the login status observable
-    this.userservice.loggedIn$.subscribe(status => {
+      this.userservice.loggedIn$.subscribe(status => {
       this.loggedIn = status;  // Update the loggedIn variable when login status changes
     });
   }
@@ -28,9 +28,9 @@ export class NavbarComponent implements OnInit //, //OnDestroy
   //     this.loginStatusSubscription.unsubscribe();
   //   }
   // }
-
   logout() {
-    this.userservice.SetLoggedIn(false);  // Set loggedIn status to false
+    console.log("Logging Out")
+    this.userservice.SetLoggedIn(false,'dummytoken');  // Set loggedIn status to false
     this.router.navigate(['/login']);  // Navigate the user to login page
   }
 }

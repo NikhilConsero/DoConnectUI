@@ -38,8 +38,8 @@ export class LoginComponent {
       next:(response)=>{
         console.log(this.UserData)
         console.log(response.result);
-        localStorage.setItem('token',response.result);
-        this.userservice.SetLoggedIn(true);
+        //localStorage.setItem('token',response.result);
+        this.userservice.SetLoggedIn(true,response.result);
         this.router.navigate(['/home']);
       },
       error:(err)=>{

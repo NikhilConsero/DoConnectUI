@@ -31,9 +31,9 @@ export class UserserviceService {
   }
 
   // Set login status (true/false)
-  SetLoggedIn(status: boolean) {
+  SetLoggedIn(status: boolean,response:any) {
     if (status) {
-      localStorage.setItem('token', 'dummy-token'); // Store a dummy token (replace this with actual logic)
+      localStorage.setItem('token', response); // Store a dummy token (replace this with actual logic)
     } else {
       localStorage.removeItem('token'); // Remove token on logout
     }
