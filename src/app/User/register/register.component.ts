@@ -33,7 +33,8 @@ export class RegisterComponent {
     UserName:'',
     Email:'',
     Password:'',
-    Phone:0
+    Phone:0,
+    Role:'User'
   }
   RegisterUser()
   {

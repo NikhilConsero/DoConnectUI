@@ -1,2 +1,46 @@
-<br><br><br><br>
-<h1>Home Page</h1>
+<div class="home-container">
+    <!-- Welcome Message -->
+    <h1>Welcome, {{ userName }}! 🎉</h1>
+    <p>Here's a quick overview of your activity and pending approvals:</p>
+  
+    <!-- Stats Display -->
+    <div class="stats-container">
+      <div class="stat-card">
+        <h2>Questions Posted</h2>
+        <p>{{ numberOfQuestionsPosted }}</p>
+      </div>
+  
+      <div class="stat-card">
+        <h2>Answers Posted</h2>
+        <p>{{ numberOfAnswersPosted }}</p>
+      </div>
+  
+      <div class="stat-card">
+        <h2>Questions Awaiting Approval</h2>
+        <p>{{ numberOfQuestionsPendingApproval }}</p>
+      </div>
+  
+      <div class="stat-card">
+        <h2>Answers Awaiting Approval</h2>
+        <p>{{ numberOfAnswersPendingApproval }}</p>
+      </div>
+  
+      <!-- Additional cards for pending approvals for admin -->
+      <div  *ngIf="isAdmin" class="stat-card">
+        <h2>Questions Waiting Approval</h2>
+        <p>{{ numberOfQuestionsPendingApproval }}</p>
+      </div>
+  
+      <div  *ngIf="isAdmin" class="stat-card">
+        <h2>Answers Waiting Approval</h2>
+        <p>{{ numberOfAnswersPendingApproval }}</p>
+      </div>
+    </div>
+  
+    <!-- Additional Actions for the User -->
+    <div class="actions">
+      <button class="action-btn">Post New Question</button>
+      <button class="action-btn">Answer Questions</button>
+    </div>
+  </div>
+  

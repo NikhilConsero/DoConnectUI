@@ -1,0 +1,79 @@
+/* Main container for centering the content */
+.home-container {
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Stats container to display stats in a flexible row */
+  .stats-container {
+    display: flex;
+    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
+    justify-content: space-around;
+    margin-top: 30px;
+    gap: 20px;  /* Add space between cards */
+  }
+  
+  /* Individual stat card styling */
+  .stat-card {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    width: 22%;  /* Adjust width to allow multiple cards per row */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .stat-card h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .stat-card p {
+    font-size: 24px;
+    font-weight: 700;
+    color: #007bff;
+  }
+  
+  /* Make the cards stack on smaller screens */
+  @media (max-width: 768px) {
+    .stat-card {
+      width: 45%; /* Stack cards in two columns */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stat-card {
+      width: 100%; /* Stack cards vertically on very small screens */
+    }
+  }
+  
+  /* Styling for action buttons */
+  .actions {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .action-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .action-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .action-btn:focus {
+    outline: none;
+  }
+  
