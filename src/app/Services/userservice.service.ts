@@ -11,12 +11,19 @@ export class UserserviceService {
   // BehaviorSubject to manage login state reactively
   private loggedInStatus = new BehaviorSubject<boolean>(this.isLoggedIn());
   loggedIn$ = this.loggedInStatus.asObservable(); // Expose the login state as observable
+  private isAdminStatus = new BehaviorSubject<boolean>(this.isAdmin());
+  isAdmin$ = this.isAdminStatus.asObservable(); // Expose the admin state as observable
 
   constructor(private http: HttpClient) { }
 
   // Check if the token is present in localStorage
   private isLoggedIn(): boolean {
     return !!localStorage.getItem('token'); // Returns true if token is found
+  }
+
+  // Check if the user has an Admin role
+  private isAdmin(): boolean {
+    return localStorage.getItem('role') === 'Admin';
   }
 
   // API call for user registration
@@ -31,17 +38,25 @@ export class UserserviceService {
   }
 
   // Set login status (true/false)
-  SetLoggedIn(status: boolean,response:any) {
+  SetLoggedIn(status: boolean, response: any): void {
     if (status) {
-      localStorage.setItem('token', response); // Store a dummy token (replace this with actual logic)
+      localStorage.setItem('token', response.token); // Store the token
+      localStorage.setItem('username', response.result.username); // Store the username
+      localStorage.setItem('role', response.result.role); // Store the role
+      // Explicitly update the admin status
+      this.isAdminStatus.next(this.isAdmin()); // Update admin status based on role
     } else {
       localStorage.removeItem('token'); // Remove token on logout
+      localStorage.removeItem('username');
+      localStorage.removeItem('role');
+      // Explicitly update the admin status
+      this.isAdminStatus.next(false); // Admin status is false on logout
     }
     this.loggedInStatus.next(status); // Update the loggedInStatus observable
   }
 
   // Get the current login status
-  getLoginStatus() {
+  getLoginStatus(): boolean {
     return this.loggedInStatus.value; // Return current login status (true/false)
   }
 }

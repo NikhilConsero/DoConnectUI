@@ -37,9 +37,9 @@ export class LoginComponent {
     this.userservice.UserLogin(this.UserData,this.UserData.Email,this.UserData.Password).subscribe({
       next:(response)=>{
         console.log(this.UserData)
-        console.log(response.result);
+        console.log(response);
         //localStorage.setItem('token',response.result);
-        this.userservice.SetLoggedIn(true,response.result);
+        this.userservice.SetLoggedIn(true,response);
         this.router.navigate(['/home']);
       },
       error:(err)=>{

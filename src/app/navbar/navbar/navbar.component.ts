@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit //, //OnDestroy
 {
   loggedIn = false;  // Default to logged out
   // private loginStatusSubscription: Subscription=new Subscription;
-
+  isAdmin = true ;
   constructor(private userservice: UserserviceService, private router: Router) { }
 
   ngOnInit(): void {
@@ -20,7 +20,10 @@ export class NavbarComponent implements OnInit //, //OnDestroy
       this.userservice.loggedIn$.subscribe(status => {
       this.loggedIn = status;  // Update the loggedIn variable when login status changes
     });
-  }
+      this.userservice.isAdmin$.subscribe(status => {
+      this.isAdmin = status;  // Update the loggedIn variable when login status changes
+  });
+}
 
   // ngOnDestroy(): void {
   //   // Unsubscribe from the observable to prevent memory leaks
@@ -28,7 +31,8 @@ export class NavbarComponent implements OnInit //, //OnDestroy
   //     this.loginStatusSubscription.unsubscribe();
   //   }
   // }
-  logout() {
+  logout() 
+  {
     console.log("Logging Out")
     this.userservice.SetLoggedIn(false,'dummytoken');  // Set loggedIn status to false
     this.router.navigate(['/login']);  // Navigate the user to login page
