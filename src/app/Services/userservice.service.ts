@@ -37,18 +37,25 @@ export class UserserviceService {
     return this.http.post(baseurl + '/User/Login?email=' + email + '&password=' + password, user);
   }
 
+  GetUserPostStatus(username:any,role:any):Observable<any>{
+    console.log(username);
+    return this.http.get(baseurl +'/User/GetCounts?username='+username+'&role='+role);
+  }
+
   // Set login status (true/false)
   SetLoggedIn(status: boolean, response: any): void {
     if (status) {
       localStorage.setItem('token', response.token); // Store the token
       localStorage.setItem('username', response.result.username); // Store the username
       localStorage.setItem('role', response.result.role); // Store the role
+      localStorage.setItem('UserID',response.result.id);
       // Explicitly update the admin status
       this.isAdminStatus.next(this.isAdmin()); // Update admin status based on role
     } else {
       localStorage.removeItem('token'); // Remove token on logout
       localStorage.removeItem('username');
       localStorage.removeItem('role');
+      localStorage.removeItem('UserID');
       // Explicitly update the admin status
       this.isAdminStatus.next(false); // Admin status is false on logout
     }
@@ -59,4 +66,6 @@ export class UserserviceService {
   getLoginStatus(): boolean {
     return this.loggedInStatus.value; // Return current login status (true/false)
   }
+
+
 }

@@ -1,46 +1,68 @@
 <div class="home-container">
-    <!-- Welcome Message -->
-    <h1>Welcome, {{ userName }}! 🎉</h1>
-    <p>Here's a quick overview of your activity and pending approvals:</p>
-  
-    <!-- Stats Display -->
-    <div class="stats-container">
-      <div class="stat-card">
-        <h2>Questions Posted</h2>
-        <p>{{ numberOfQuestionsPosted }}</p>
-      </div>
-  
-      <div class="stat-card">
-        <h2>Answers Posted</h2>
-        <p>{{ numberOfAnswersPosted }}</p>
-      </div>
-  
-      <div class="stat-card">
-        <h2>Questions Awaiting Approval</h2>
-        <p>{{ numberOfQuestionsPendingApproval }}</p>
-      </div>
-  
-      <div class="stat-card">
-        <h2>Answers Awaiting Approval</h2>
-        <p>{{ numberOfAnswersPendingApproval }}</p>
-      </div>
-  
-      <!-- Additional cards for pending approvals for admin -->
-      <div  *ngIf="isAdmin" class="stat-card">
-        <h2>Questions Waiting Approval</h2>
-        <p>{{ numberOfQuestionsPendingApproval }}</p>
-      </div>
-  
-      <div  *ngIf="isAdmin" class="stat-card">
-        <h2>Answers Waiting Approval</h2>
-        <p>{{ numberOfAnswersPendingApproval }}</p>
-      </div>
+  <!-- Welcome Message -->
+  <h1>Welcome, {{ userName }}! 🎉</h1>
+  <p>Here's a quick overview of your activity and pending approvals:</p>
+
+  <!-- Stats Display -->
+  <div class="stats-container">
+    <!-- User Stats -->
+    <div class="stat-card">
+      <h2>Total Questions Posted</h2>
+      <p>{{ totalQuestionsPosted }}</p>
     </div>
-  
-    <!-- Additional Actions for the User -->
-    <div class="actions">
-      <button class="action-btn">Post New Question</button>
-      <button class="action-btn">Answer Questions</button>
+
+    <div class="stat-card">
+      <h2>Total Answers Posted</h2>
+      <p>{{ totalAnswersPosted }}</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>Total Questions Awaiting Approval</h2>
+      <p>{{ totalQuestionsAwaitingApproval }}</p>
+    </div>
+
+    <div class="stat-card">
+      <h2>Total Answers Awaiting Approval</h2>
+      <p>{{ totalAnswersAwaitingApproval }}</p>
+    </div>
+
+    <!-- Rejected Stats for User -->
+    <div class="stat-card rejected">
+      <h2>Total Questions Rejected</h2>
+      <p>{{ totalQuestionsRejected }}</p>
+    </div>
+
+    <div class="stat-card rejected">
+      <h2>Total Answers Rejected</h2>
+      <p>{{ totalAnswersRejected }}</p>
+    </div>
+
+    <!-- Approved Stats for User -->
+    <div class="stat-card approved">
+      <h2>Total Questions Approved</h2>
+      <p>{{ totalQuestionsApproved }}</p>
+    </div>
+
+    <div class="stat-card approved">
+      <h2>Total Answers Approved</h2>
+      <p>{{ totalAnswersApproved }}</p>
+    </div>
+
+    <!-- Admin Stats (Only visible for admins) -->
+    <div *ngIf="isAdmin" class="stat-card admin-approve">
+      <h2>Questions Need Approval</h2>
+      <p>{{ totalQuestionsNeedApproval }}</p>
+    </div>
+
+    <div *ngIf="isAdmin" class="stat-card admin-approve">
+      <h2>Answers Need Approval</h2>
+      <p>{{ totalAnswersNeedApproval }}</p>
     </div>
   </div>
-  
+
+  <!-- Additional Actions for the User -->
+  <div class="actions">
+    <button class="action-btn">Post New Question</button>
+    <button class="action-btn">Answer Questions</button>
+  </div>
+</div>

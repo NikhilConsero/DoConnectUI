@@ -1,2 +1,45 @@
-<br><br><br><br>
-<h1>Question  Page</h1>
+<br><br><br>
+<div class="container">
+    <h1>Post Your Question!</h1>
+  
+    <!-- Question Post Form -->
+    <div class="question-form">
+      <h2>Post a Question</h2>
+      <form (ngSubmit)="postQuestion()">
+        <!-- Topic Dropdown -->
+        <div class="form-group">
+          <label for="topicSelect">Select Topic</label>
+          <select id="topicSelect" [(ngModel)]="selectedTopic" name="topic" class="form-control" required>
+            <option value="" disabled selected>Select a Topic</option>
+            <!-- Loop over topics array to populate the dropdown -->
+            <option *ngFor="let topic of topics" [value]="topic">{{ topic }}</option>
+          </select>
+        </div>
+  
+        <!-- Question Input -->
+        <div class="form-group">
+          <label for="questionInput">Your Question</label>
+          <textarea id="questionInput" [(ngModel)]="newQuestion" name="question" class="form-control" rows="3" placeholder="Ask your question here..." required></textarea>
+        </div>
+  
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">Post Question</button>
+      </form>
+    </div>
+  
+    <!-- Display All Questions -->
+    <div class="question-list">
+      <h2>All Questions</h2>
+      <div *ngIf="questions && questions.length === 0">
+        <p>No questions posted yet.</p>
+      </div>
+      <ul *ngIf="questions && questions.length > 0">
+        <li *ngFor="let question of questions" class="question-item">
+          <p><strong>Username: </strong>{{ question.username }}</p>
+          <p><strong>Topic: </strong>{{ question.topicname }}</p>
+          <p><strong>Question: </strong>{{ question.question }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

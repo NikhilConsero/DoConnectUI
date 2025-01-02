@@ -1,79 +1,75 @@
 /* Main container for centering the content */
 .home-container {
-    padding: 20px;
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  /* Stats container to display stats in a flexible row */
-  .stats-container {
-    display: flex;
-    flex-wrap: wrap;  /* Allow wrapping on smaller screens */
-    justify-content: space-around;
-    margin-top: 30px;
-    gap: 20px;  /* Add space between cards */
-  }
-  
-  /* Individual stat card styling */
-  .stat-card {
-    background-color: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-    width: 22%;  /* Adjust width to allow multiple cards per row */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .stat-card h2 {
-    margin: 0;
-    font-size: 18px;
-    font-weight: 600;
-  }
-  
-  .stat-card p {
-    font-size: 24px;
-    font-weight: 700;
-    color: #007bff;
-  }
-  
-  /* Make the cards stack on smaller screens */
-  @media (max-width: 768px) {
-    .stat-card {
-      width: 45%; /* Stack cards in two columns */
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .stat-card {
-      width: 100%; /* Stack cards vertically on very small screens */
-    }
-  }
-  
-  /* Styling for action buttons */
-  .actions {
-    margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .action-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-  
-  .action-btn:hover {
-    background-color: #0056b3;
-  }
-  
-  .action-btn:focus {
-    outline: none;
-  }
-  
+  padding: 20px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Stats container to display stats in a flexible row */
+.stats-container {
+  display: flex;
+  flex-wrap: wrap;  /* Allow wrapping on smaller screens */
+  justify-content: space-around;
+  margin-top: 30px;
+  gap: 20px;  /* Add space between cards */
+}
+
+/* Individual stat card styling */
+.stat-card {
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  width: 22%;  /* Adjust width to allow multiple cards per row */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Styling for Rejected Stats to differentiate them visually */
+.stat-card.rejected {
+  background-color: #f8d7da; 
+  border-left: 5px solid #dc3545; /* Red accent for rejected */
+}
+
+/* Styling for Approved Stats */
+.stat-card.approved {
+  background-color: #d4edda; 
+  border-left: 5px solid #28a745; /* Green accent for approved */
+}
+
+/* Admin stats for 'Need Approval' */
+.stat-card.admin-approve {
+  background-color: #fff3cd;  /* Yellow background to highlight "need approval" status */
+  border-left: 5px solid #ffc107;  /* Yellow accent for admin approval cards */
+}
+
+/* Styling for action buttons */
+.actions {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Increased gap between buttons */
+}
+
+/* Enhanced button styling */
+.action-btn {
+  background: linear-gradient(135deg, #007bff, #00aaff); /* Gradient background */
+  color: white;
+  border: none;
+  padding: 12px 24px;  /* Increased padding for a more comfortable click area */
+  margin: 10px;
+  border-radius: 50px;  /* Rounded corners */
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase; /* Make text all caps */
+  letter-spacing: 1px;  /* Slight letter spacing */
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);  /* Soft shadow */
+  transition: all 0.3s ease;  /* Smooth transition for hover and focus effects */
+  outline: none;  /* Remove outline on focus */
+}
+
+/* Button hover effect */
+.action-btn:hover {
+  background: linear-gradient(135deg, #0056b3, #0077cc); 
+}
